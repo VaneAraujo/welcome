@@ -16,7 +16,6 @@ declare interface IWelcomeWebPartStrings {
   PropertiesGroupName: string;
 	MessageLabel: string;
 	TitleLabel: string;
-  backgroundColor: string;
 }
 
 declare module 'WelcomeWebPartStrings' {

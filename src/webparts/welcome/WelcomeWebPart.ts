@@ -9,7 +9,6 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import * as strings from 'WelcomeWebPartStrings';
 import styles from './WelcomeWebPart.module.scss';
-import { PropertyFieldCodeEditor, PropertyFieldCodeEditorLanguages } from '@pnp/spfx-property-controls/lib/PropertyFieldCodeEditor';
 
 export interface IWelcomeWebPartProps {
   title: string;
@@ -24,7 +23,6 @@ export interface IWelcomeWebPartProps {
   message: string;
   showname: string;
   showfirstname: boolean;
-  htmlCode: string;
 }
 
 export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPartProps> {
@@ -74,7 +72,7 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
         ? styles.right
         : styles.center;
 //
-        const messagecontent = `<${this.properties.messagestyle} style="background:red" class=${textalign}> ${message} ${name}</${this.properties.messagestyle}>`;
+        const messagecontent = `<${this.properties.messagestyle}  class=${textalign}> ${message} ${name}</${this.properties.messagestyle}>`;
    
         this.domElement.innerHTML = `
           <div> 
@@ -196,21 +194,7 @@ export default class WelcomeWebPart extends BaseClientSideWebPart<IWelcomeWebPar
                   ],
                 }),
                 //Color Picker
-                PropertyFieldCodeEditor('htmlCode', {
-                  label: 'Edit HTML Code',
-                  panelTitle: 'Edit HTML Code',
-                  initialValue: this.properties.htmlCode,
-                  onPropertyChange: this.onPropertyPaneFieldChanged,
-                  properties: this.properties,
-                  disabled: false,
-                  key: 'codeEditorFieldId',
-                  language: PropertyFieldCodeEditorLanguages.HTML,
-                  options: {
-                    wrap: true,
-                    fontSize: 20,
-                    // more options
-                  }
-                }),
+                
                //Text Aling
                 PropertyPaneChoiceGroup("textalignment", {
                   label: strings.TextAlignmentLabel,

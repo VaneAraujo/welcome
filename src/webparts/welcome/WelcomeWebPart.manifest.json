@@ -29,8 +29,7 @@
       "afternoonmessage": "Good Afternoon, ",
       "eveningmessage": "Good Evening, ",
       "afternoonbegintime": 12,
-      "eveningbegintime": 17,
-      "BackgroundColor": "#cccccc"
+      "eveningbegintime": 17
     }
   }]
 }
